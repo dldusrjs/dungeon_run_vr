@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: c92dad189eea38645a6ddbf77334fc40
+timeCreated: 1516002094
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Colar
+    100004: DoorNorth
+    100006: DoorRock
+    100008: DoorRock2
+    100010: DoorSouth
+    100012: DownStair
+    100014: DownStairDeco
+    100016: DownStairWall
+    100018: Floor
+    100020: Lamp
+    100022: Rock1
+    100024: Rock1.001
+    100026: Rock2
+    100028: Rock2.001
+    100030: Rock3
+    100032: Rock3.001
+    100034: RockWall
+    100036: RockWall.001
+    100038: //RootNode
+    100040: Tile
+    100042: Torch
+    100044: Wall
+    400000: Camera
+    400002: Colar
+    400004: DoorNorth
+    400006: DoorRock
+    400008: DoorRock2
+    400010: DoorSouth
+    400012: DownStair
+    400014: DownStairDeco
+    400016: DownStairWall
+    400018: Floor
+    400020: Lamp
+    400022: Rock1
+    400024: Rock1.001
+    400026: Rock2
+    400028: Rock2.001
+    400030: Rock3
+    400032: Rock3.001
+    400034: RockWall
+    400036: RockWall.001
+    400038: //RootNode
+    400040: Tile
+    400042: Torch
+    400044: Wall
+    2300000: Colar
+    2300002: DoorNorth
+    2300004: DoorRock
+    2300006: DoorRock2
+    2300008: DoorSouth
+    2300010: DownStair
+    2300012: DownStairDeco
+    2300014: DownStairWall
+    2300016: Floor
+    2300018: Rock1
+    2300020: Rock1.001
+    2300022: Rock2
+    2300024: Rock2.001
+    2300026: Rock3
+    2300028: Rock3.001
+    2300030: RockWall
+    2300032: RockWall.001
+    2300034: Tile
+    2300036: Torch
+    2300038: Wall
+    3300000: Colar
+    3300002: DoorNorth
+    3300004: DoorRock
+    3300006: DoorRock2
+    3300008: DoorSouth
+    3300010: DownStair
+    3300012: DownStairDeco
+    3300014: DownStairWall
+    3300016: Floor
+    3300018: Rock1
+    3300020: Rock1.001
+    3300022: Rock2
+    3300024: Rock2.001
+    3300026: Rock3
+    3300028: Rock3.001
+    3300030: RockWall
+    3300032: RockWall.001
+    3300034: Tile
+    3300036: Torch
+    3300038: Wall
+    4300000: DoorRock
+    4300002: DoorRock2
+    4300004: Rock1.001
+    4300006: Rock2.001
+    4300008: Rock3.001
+    4300010: RockWall.001
+    4300012: RockWall
+    4300014: Rock3
+    4300016: Rock2
+    4300018: Rock1
+    4300020: DownStair
+    4300022: DownStairWall
+    4300024: DownStairDeco
+    4300026: Torch
+    4300028: Tile
+    4300030: DoorSouth
+    4300032: DoorNorth
+    4300034: Wall
+    4300036: Colar
+    4300038: Floor
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
