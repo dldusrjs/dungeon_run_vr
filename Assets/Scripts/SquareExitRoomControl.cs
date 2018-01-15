@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/**
+ * @author : Yeonkun Lee
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
