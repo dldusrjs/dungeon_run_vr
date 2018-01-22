@@ -7,6 +7,7 @@ public class LeftFollowForce : MonoBehaviour {
     public GameObject originalHand;
 
     private Vector3 vector3HandToHand;
+    private Vector3 vector3AngularHandToHand;
     private Vector3 imgHandVelocity;
     private Vector3 eulerAngleHandToHand;
     private Vector3 imgHandAngularVelocity;
@@ -17,7 +18,9 @@ public class LeftFollowForce : MonoBehaviour {
     public static float Left_control_K = 100.0f;
     public static float Left_control_K_Accel = 0f; // Acceleration 보너스 증가치를 의미
     public static float Left_control_C = 10.0f;
-    public static float Left_angularMomentumInverse = 0.5f; 
+    public static float Left_controlRotation_K = 20f;
+    public static float Left_controlRotation_C = 5f;
+
     public static float LeftHandExhaustValue;
 
     public static bool Left_isCollidingObstacle = false;
@@ -39,6 +42,7 @@ public class LeftFollowForce : MonoBehaviour {
         Left_DefaultMotion();
         Left_MotionSwitching();
         Left_Acceleration();
+
         LeftHandExhaust();
     }
 
@@ -49,7 +53,18 @@ public class LeftFollowForce : MonoBehaviour {
         imgHandVelocity = GetComponent<Rigidbody>().velocity;
         imgHandAngularVelocity = GetComponent<Rigidbody>().angularVelocity;
         GetComponent<Rigidbody>().AddForce(vector3HandToHand * (Left_control_K + Left_control_K_Accel) - imgHandVelocity * Left_control_C);
-        transform.rotation = Quaternion.Slerp(transform.rotation, originalHand.transform.rotation, Left_angularMomentumInverse);
+
+        Vector3 x = Vector3.Cross(originalHand.transform.forward.normalized, -transform.forward.normalized);
+        Vector3 y = Vector3.Cross(originalHand.transform.right.normalized, -transform.right.normalized);
+
+        float theta_x = Mathf.Asin(x.magnitude);
+        float theta_y = Mathf.Asin(y.magnitude);
+
+        Vector3 w = x.normalized * theta_x + y.normalized * theta_y; /// Time.fixedDeltaTime;
+
+        //Quaternion q = transform.rotation * GetComponent<Rigidbody>().inertiaTensorRotation;
+        //vector3AngularHandToHand = q * Vector3.Scale(GetComponent<Rigidbody>().inertiaTensor, (Quaternion.Inverse(q) * w));
+        GetComponent<Rigidbody>().AddTorque(w * Left_controlRotation_K - imgHandAngularVelocity * Left_controlRotation_C);
     }
 
     void Left_MotionSwitching()
@@ -78,23 +93,20 @@ public class LeftFollowForce : MonoBehaviour {
     {
         Left_control_K = 100.0f;
         Left_control_C = 10.0f;
-        Left_angularMomentumInverse = 0.5f;
         //Debug.Log("left-idle");
     }
 
     void SwordGrabMotion()
     {
-        Left_control_K = 30.0f;
+        Left_control_K = 100.0f;
         Left_control_C = 8.0f;
-        Left_angularMomentumInverse = 0.1f;
         //Debug.Log("left-sword");
     }
 
     void ShieldGrabMotion()
     {
-        Left_control_K = 15.0f;
+        Left_control_K = 100.0f;
         Left_control_C = 8.0f;
-        Left_angularMomentumInverse = 0.01f;
     }
 
     void CollidingMotion()
@@ -102,7 +114,6 @@ public class LeftFollowForce : MonoBehaviour {
         Left_control_K = 0.4f;
         Left_control_K_Accel = 0f;
         Left_control_C = 5.0f;
-        Left_angularMomentumInverse = 0.005f;
         //Debug.Log("left-Colliding");
     }
 
@@ -123,7 +134,7 @@ public class LeftFollowForce : MonoBehaviour {
     /// </summary>
     void LeftHandExhaust()
     {
-        if (originalHand.name == "LeftHandAnchor")
+        if (originalHand.name == "LeftHandExact")
         {
             LeftHandExhaustValue = Vector3.Magnitude(transform.position - originalHand.transform.position);
             LeftHandExhaustValue = Mathf.Round(LeftHandExhaustValue * 1000f) / 1000f;

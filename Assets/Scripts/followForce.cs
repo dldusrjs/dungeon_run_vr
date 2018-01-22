@@ -5,7 +5,6 @@ using UnityEngine;
 public class followForce : MonoBehaviour {
 
     public GameObject originalHand;
-    public GameObject CenterOfBody;
 
     private Vector3 vector3HandToHand;
     private Vector3 vector3AngularHandToHand;
@@ -22,7 +21,6 @@ public class followForce : MonoBehaviour {
     public static float controlRotation_K = 20f;
     public static float controlRotation_C = 5f;
 
-    public static float angularMomentumInverse = 0.5f; 
     public static float RightHandExhaustValue;
 
     public static bool isCollidingObstacle = false;
@@ -96,7 +94,6 @@ public class followForce : MonoBehaviour {
     {
         control_K = 100.0f;
         control_C = 10.0f;
-        angularMomentumInverse = 0.5f;
         //Debug.Log("right-idle");
     }
 
@@ -104,15 +101,13 @@ public class followForce : MonoBehaviour {
     {
         control_K = 100.0f;
         control_C = 8.0f;
-        angularMomentumInverse = 0.1f;
         //Debug.Log("right-sword");
     }
 
     void ShieldGrabMotion()
     {
-        control_K = 15.0f;
+        control_K = 100.0f;
         control_C = 8.0f;
-        angularMomentumInverse = 0.01f;
     }
 
     void CollidingMotion()
@@ -120,7 +115,6 @@ public class followForce : MonoBehaviour {
         control_K = 0.4f;
         control_K_Accel = 0f;
         control_C = 5.0f;
-        angularMomentumInverse = 0.005f;
         //Debug.Log("right-Colliding");
     }
 
@@ -141,7 +135,7 @@ public class followForce : MonoBehaviour {
     /// </summary>
     void RightHandExhaust()
     {
-        if (originalHand.name == "RightHandAnchor")
+        if (originalHand.name == "RightHandExact")
         {
             RightHandExhaustValue = Vector3.Magnitude(transform.position - originalHand.transform.position);
             RightHandExhaustValue = Mathf.Round(RightHandExhaustValue * 1000f) / 1000f;

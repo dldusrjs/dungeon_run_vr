@@ -6,7 +6,7 @@ public class grabbing : MonoBehaviour {
 
     public OVRInput.Controller controller;
     public string buttonName;
-    private GameObject Right_grabbedObject;
+    public static GameObject Right_grabbedObject;
     public static bool rightIsGrabbed;
     public float GrabRadius;
     public LayerMask GrabMask;
@@ -36,11 +36,18 @@ public class grabbing : MonoBehaviour {
                 Right_grabbedObject.transform.position = transform.position;
                 Right_grabbedObject.AddComponent<FixedJoint>();
                 Right_grabbedObject.GetComponent<FixedJoint>().connectedBody = GetComponent<Rigidbody>();
-                if (Right_grabbedObject.tag == "Sword") followForce.Right_currentHandState = 1;
-                if (Right_grabbedObject.tag == "Shield") followForce.Right_currentHandState = 2;
+                if (Right_grabbedObject.tag == "Sword")
+                {
+                    followForce.Right_currentHandState = 1;
+                }
+                if (Right_grabbedObject.tag == "Shield")
+                {
+                    followForce.Right_currentHandState = 2;
+                }
             }
             else
             {
+                Right_grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
                 Right_grabbedObject.transform.position = transform.position;
                 Right_grabbedObject.transform.parent = transform;
             }

@@ -44,7 +44,7 @@ public class EnemyShieldFollowing : MonoBehaviour {
         {
             StartCoroutine("Exhausted");
         }
-        Debug.Log(HandEnergyValue);
+        //Debug.Log(HandEnergyValue);
     }
     void DefaultMotion()
     {

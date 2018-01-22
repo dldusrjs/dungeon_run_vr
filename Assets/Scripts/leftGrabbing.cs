@@ -7,7 +7,7 @@ public class leftGrabbing : MonoBehaviour
 
     public OVRInput.Controller L_controller;
     public string L_buttonName;
-    private GameObject Left_grabbedObject;
+    public static GameObject Left_grabbedObject;
     public static bool Left_isGrabbed;
     public float Left_GrabRadius;
     public LayerMask GrabMask;
@@ -42,6 +42,7 @@ public class leftGrabbing : MonoBehaviour
             }
             else
             {
+                Left_grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
                 Left_grabbedObject.transform.position = transform.position;
                 Left_grabbedObject.transform.parent = transform;
             }

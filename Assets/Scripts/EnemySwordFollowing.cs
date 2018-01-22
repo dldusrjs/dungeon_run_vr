@@ -45,7 +45,7 @@ public class EnemySwordFollowing : MonoBehaviour {
         {
             StartCoroutine("Exhausted");
         }
-        Debug.Log(HandEnergyValue);
+        //Debug.Log(HandEnergyValue);
     }
 
     void DefaultMotion()
@@ -119,6 +119,7 @@ public class EnemySwordFollowing : MonoBehaviour {
             else
             {
                 StartCoroutine("Exhausted");
+                //CenterOfBody.GetComponent<Animator>().Play("idleWait", -1);
             }
         }
     }
